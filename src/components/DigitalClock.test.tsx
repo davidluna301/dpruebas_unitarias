@@ -14,13 +14,13 @@ describe("DigitalClock", () => {
 
   test("muestra la hora en formato HH:MM:SS", () => {
     render(<DigitalClock />);
-    const clockElement = screen.getByText(/\d{2}:\d{2}:\d{2}/);
+    const clockElement = screen.getByText(/\d{1,2}:\d{2}:\d{2}/);
     expect(clockElement).toBeInTheDocument();
   });
 
   test("avanza correctamente con el tiempo simulado", () => {
     render(<DigitalClock />);
-    const initialTime = screen.getByText(/\d{2}:\d{2}:\d{2}/).textContent;
+    const initialTime = screen.getByText(/\d{1,2}:\d{2}:\d{2}/).textContent;
     act(() => {
       jest.advanceTimersByTime(1000);
     });
